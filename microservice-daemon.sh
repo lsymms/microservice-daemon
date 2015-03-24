@@ -32,7 +32,7 @@ if [ $? -eq 0 ]; then
 fi	
 echo $JOB_NAME not running. Starting...
 echo "---------------- STARTING SERVER ------------------" >> $OUTPUT_FILE
-daemon --name=$JOB_NAME --inherit --output=$OUTPUT_FILE --pidfile=$PID_FILE -- $JAVA_BIN -jar $JAR_FILE $JAVA_ARGS
+daemon --name=$JOB_NAME --inherit --output=$OUTPUT_FILE --pidfile=$PID_FILE -- sudo $JAVA_BIN -jar $JAR_FILE $JAVA_ARGS
 
 # Verify that the server starts by getting a
 for (( i=0; i<60; i++ )) 
